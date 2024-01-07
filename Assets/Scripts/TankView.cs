@@ -6,15 +6,44 @@ public class TankView : MonoBehaviour
 {
 
     private TankController tankController;
-    
-    public TankView()
+    private float movementInput;
+    private float rotationInput;
+
+    private Rigidbody rb;
+
+    private void Start()
     {
-      
+        rb = GetComponent<Rigidbody>();
+        GameObject cam = GameObject.Find("Main Camera");
+        cam.transform.SetParent(this.transform);
+        cam.transform.position = new Vector3(0f, 3.5f, -6.5f);
+    }
+
+    private void Update()
+    {
+        Movement();
+
+        if(movementInput !=0)
+            tankController.Move(movementInput,tankController.GetTankModel().GetMovementSpeed());
+
+        if(rotationInput !=0)
+            tankController.Rotate(rotationInput, tankController.GetTankModel().GetRotationSpeed());
     }
 
     public void SetTankController(TankController _tankController)
     {
         this.tankController = _tankController;
+    }
+
+    private void Movement()
+    {
+        movementInput = Input.GetAxis("Vertical");
+        rotationInput = Input.GetAxis("Horizontal");
+    }
+
+    public Rigidbody GetRigidbody()
+    {
+        return rb;
     }
 
 }
