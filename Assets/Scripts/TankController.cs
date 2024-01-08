@@ -25,7 +25,6 @@ public class TankController
 
     public void Rotate(float rotate, float rotationSpeed) 
     {
-        //Vector3 vector = new Vector3(0, rotate * rotationSpeed, 0);
         Quaternion deltaAngle = Quaternion.Euler(Vector3.up * rotate * rotationSpeed * Time.deltaTime);
         rb.MoveRotation(rb.rotation*deltaAngle);
     }
