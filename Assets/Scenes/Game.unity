@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,6 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73e0a5411cfa649adf7a23ad2458d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankList:
+  - movementSpeed: 20
+    rotationSpeed: 30
+    tankType: 1
+    color: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}
+  - movementSpeed: 40
+    rotationSpeed: 60
+    tankType: 0
+    color: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}
+  - movementSpeed: 60
+    rotationSpeed: 120
+    tankType: 2
+    color: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
   tankView: {fileID: 1162755648385306481, guid: 1d82779533fb2af4286d5ec585bba3b9,
     type: 3}
 --- !u!4 &287329983
@@ -317,10 +330,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925301389500698, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23537509440660396, guid: 0aac6aef14f064c3fb626270cff2683b,
+        type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108508902704731568, guid: 0aac6aef14f064c3fb626270cff2683b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.74889994
+      objectReference: {fileID: 0}
+    - target: {fileID: 108508902704731568, guid: 0aac6aef14f064c3fb626270cff2683b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9259042
+      objectReference: {fileID: 0}
+    - target: {fileID: 108508902704731568, guid: 0aac6aef14f064c3fb626270cff2683b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.98490566
+      objectReference: {fileID: 0}
     - target: {fileID: 108508902704731568, guid: 0aac6aef14f064c3fb626270cff2683b,
         type: 3}
       propertyPath: m_Intensity
-      value: 1.2
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

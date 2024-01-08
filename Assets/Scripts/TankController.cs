@@ -5,6 +5,7 @@ public class TankController
     private TankModel tankModel;
     private TankView tankView;
     private Rigidbody rb;
+
     public TankController(TankModel _tankModel, TankView _tankView)
     {
         this.tankModel = _tankModel;
@@ -13,6 +14,8 @@ public class TankController
         rb = tankView.GetComponent<Rigidbody>();
         tankModel.SetTankController(this);
         tankView.SetTankController(this);
+
+        tankView.ChangeColor(tankModel.GetColor());
     }
 
     public void Move(float movement, float movementSpeed)

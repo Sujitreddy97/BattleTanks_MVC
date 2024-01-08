@@ -3,14 +3,25 @@ using UnityEngine;
 public class TankModel
 {
     private TankController tankController;
+
     private float movementSpeed;
+
     private float rotationSpeed;
 
-    public TankModel(float _movementSpeed, float _rotationSpeed)
+    private TankTypes tankType;
+
+    private Material color;
+
+
+    public TankModel(float _movementSpeed, float _rotationSpeed, TankTypes _tankType, Material _color)
     {
         this.movementSpeed = _movementSpeed;
 
         this.rotationSpeed = _rotationSpeed;
+
+        this.tankType = _tankType;
+
+        this.color = _color;
 
     }
 
@@ -27,6 +38,11 @@ public class TankModel
     public float GetRotationSpeed()
     {
         return rotationSpeed;
+    }
+
+    public Material GetColor() 
+    {
+        return color;
     }
 }
 
