@@ -1,37 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController
 {
     private BulletModel bulletModel;
     private BulletView bulletView;
-    private Rigidbody rb;
 
-    public BulletController(BulletModel _bulletModel, BulletView _bulletView)
+    public BulletController(BulletModel _bulletModel, Vector3 spawnPosition, Vector3 spawnDirection)
     {
         this.bulletModel = _bulletModel;
-        this.bulletView = GameObject.Instantiate<BulletView>(_bulletView);
 
-        bulletModel.SetBulletController(this);
+        this.bulletView = Object.Instantiate(bulletModel.GetBulletPrefab());
+        bulletModel.SetDirection(spawnDirection);
         bulletView.SetBulletController(this);
-
-        rb = this.bulletView.GetComponent<Rigidbody>();
-    }
-
-    public BulletModel GetBulletModel()
-    {
-        return this.bulletModel;
-    }
-
-    public void LaunchProjectile(float velocity)
-    {
-        rb.AddRelativeForce(new Vector3(0, velocity,0));
-    }
-
-    public void Destroy(BulletView bullet)
-    {
-        GameObject.Destroy(bullet);
+      
+        bulletView.Init(spawnPosition, spawnDirection);
+        bulletView.transform.rotation = Quaternion.LookRotation(spawnDirection);
     }
     
+
+    public void Update()
+    {
+        bulletView.UpdateVelocity(bulletModel.GetDirection() * bulletModel.GetBulletSpeed());
+    }
+
+    public void HandleCollision(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameObject.Destroy(collision.gameObject);
+        } 
+        else if(collision.gameObject.layer == 3)
+        {
+            DestroyBullet();
+        }
+    }
+
+    private void DestroyBullet()
+    {
+        GameObject.Destroy(this.bulletView.gameObject);
+    }
 }

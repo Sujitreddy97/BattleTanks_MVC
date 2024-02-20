@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankSelection : MonoBehaviour
 {
-    public TankSpawner tankSpawner;
+    public TankService tankSpawner;
 
     public void CreateBlueTank()
     {

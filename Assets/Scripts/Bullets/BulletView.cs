@@ -5,16 +5,34 @@ public class BulletView : MonoBehaviour
 {
     private BulletController bulletController;
 
-    private float launchVelocity;
+    private Rigidbody rb;
 
-    void Start()
+  
+    private void Start()
     {
-        launchVelocity = bulletController.GetBulletModel().GetLaunchVelocity();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void Init(Vector3 spawnPosition, Vector3 spawnDirection)
+    {
+        transform.position = spawnPosition;
+        transform.rotation = Quaternion.Euler(spawnDirection);
     }
 
     void Update()
     {
-        bulletController.LaunchProjectile(launchVelocity);
+        if (bulletController != null)
+        {
+            bulletController.Update();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (bulletController != null)
+        {
+            bulletController.HandleCollision(collision);
+        }
     }
 
     public void SetBulletController(BulletController _bulletController)
@@ -22,14 +40,8 @@ public class BulletView : MonoBehaviour
         this.bulletController = _bulletController;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void UpdateVelocity(Vector3 velocity)
     {
-        Collider collider = collision.collider;
-
-        if(collision.gameObject.tag == "Enemy")
-        {
-            Destroy(collision.gameObject);
-        }
+        rb.velocity = velocity;
     }
-
 }

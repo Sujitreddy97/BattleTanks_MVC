@@ -2,22 +2,44 @@ using UnityEngine;
 
 public class BulletModel
 {
-    private float launchVelocity;
+    private float bulletSpeed;
+    private float damageRate;
     private BulletController bulletController;
+    private Vector3 direction;
+    private BulletScriptableObject bulletScriptableObject;
 
-    public BulletModel(float _launchVelocity)
+    private BulletView bulletPrefab;
+
+    public BulletModel(BulletScriptableObject _bulletScriptableObject)
     {
-       this.launchVelocity = _launchVelocity;
+        bulletScriptableObject = _bulletScriptableObject;
+        bulletSpeed = bulletScriptableObject.bulletSpeed;
+        damageRate = bulletScriptableObject.damageRate;
+        bulletPrefab = bulletScriptableObject.bulletObject;
     }
 
-    public void SetBulletController(BulletController _bulletController)
+    public BulletView GetBulletPrefab()
     {
-        this.bulletController = _bulletController;
+        return bulletPrefab;
     }
 
-
-    public float GetLaunchVelocity()
+    public float GetBulletSpeed()
     {
-        return launchVelocity;
+        return bulletSpeed;
+    }
+
+    public float GetDamageRate() 
+    {
+        return damageRate;
+    }
+
+    public void SetDirection(Vector3 direction)
+    {
+        this.direction = direction;
+    }
+
+    public Vector3 GetDirection()
+    {
+        return this.direction;
     }
 }
