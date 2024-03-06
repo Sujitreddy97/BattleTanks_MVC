@@ -12,24 +12,23 @@ public class TankModel
 
     private Material color;
 
+    private TankScriptableObject tankScriptableObject; 
 
-    public TankModel(float _movementSpeed, float _rotationSpeed, TankTypes _tankType, Material _color)
+    public TankModel(TankScriptableObject _tankScriptableObject)
     {
-        this.movementSpeed = _movementSpeed;
+        this.tankScriptableObject = _tankScriptableObject;
 
-        this.rotationSpeed = _rotationSpeed;
+        this.movementSpeed = _tankScriptableObject.movementSpeed;
 
-        this.tankType = _tankType;
+        this.rotationSpeed = _tankScriptableObject.rotationSpeed;
 
-        this.color = _color;
+        this.tankType = _tankScriptableObject.tankType;
 
+        this.color = _tankScriptableObject.color;
+        
     }
 
-    public void SetTankController(TankController _tankController)
-    {
-        this.tankController = _tankController;
-    }
-
+   
     public float GetMovementSpeed()
     {
         return movementSpeed;
@@ -44,6 +43,7 @@ public class TankModel
     {
         return color;
     }
+
 }
 
 

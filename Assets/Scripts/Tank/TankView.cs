@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TankView : MonoBehaviour
@@ -11,13 +12,15 @@ public class TankView : MonoBehaviour
 
     private float rotationInput;
 
-    private Rigidbody rb;
+    [SerializeField] private MeshRenderer[] childs;
 
-    public MeshRenderer[] childs;
+    [SerializeField] private Transform shootTransform;
+
+    [SerializeField] private BulletScriptableObject bulletSO;
+
 
     private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
+    { 
         GameObject cam = GameObject.Find("Main Camera");
         cam.transform.SetParent(this.transform);
         cam.transform.position = new Vector3(0f, 3.5f, -6.5f);
@@ -32,6 +35,8 @@ public class TankView : MonoBehaviour
 
         if(rotationInput !=0)
             tankController.Rotate(rotationInput, tankController.GetTankModel().GetRotationSpeed());
+
+        FireBullet();
     }
 
     public void SetTankController(TankController _tankController)
@@ -45,11 +50,6 @@ public class TankView : MonoBehaviour
         rotationInput = Input.GetAxis("Horizontal");
     }
 
-    public Rigidbody GetRigidbody()
-    {
-        return rb;
-    }
-
     public void ChangeColor(Material color)
     {
         for(int i = 0; i < childs.Length; i++) 
@@ -58,4 +58,20 @@ public class TankView : MonoBehaviour
         }
     }
 
+    public BulletScriptableObject BulletScriptableObject 
+    { 
+        get
+        {
+            return bulletSO; 
+        } 
+    }
+
+   private void FireBullet()
+   {
+        Vector3 forwardDirection = shootTransform.forward;
+        if (Input.GetMouseButtonDown(0))
+        {
+            tankController.Shoot(shootTransform.position, forwardDirection);
+        }
+   }
 }

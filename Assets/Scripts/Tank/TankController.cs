@@ -5,6 +5,7 @@ public class TankController
     private TankModel tankModel;
     private TankView tankView;
     private Rigidbody rb;
+    private BulletService bulletService;
 
     public TankController(TankModel _tankModel, TankView _tankView)
     {
@@ -12,10 +13,10 @@ public class TankController
         this.tankView = GameObject.Instantiate<TankView>(_tankView);
 
         rb = tankView.GetComponent<Rigidbody>();
-        tankModel.SetTankController(this);
         tankView.SetTankController(this);
 
         tankView.ChangeColor(tankModel.GetColor());
+        bulletService = new BulletService(tankView.BulletScriptableObject);
     }
 
     public void Move(float movement, float movementSpeed)
@@ -33,4 +34,13 @@ public class TankController
     {
         return tankModel;
     }
+
+    public void Shoot(Vector3 spwanPos, Vector3 moveDirection)
+    {
+        if(Input.GetMouseButtonDown(0)) 
+        {
+            bulletService.CreateAndFireBullet(spwanPos, moveDirection);
+        }
+    }
+
 }
