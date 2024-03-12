@@ -15,8 +15,8 @@ public class BulletView : MonoBehaviour
 
     public void Init(Vector3 spawnPosition, Vector3 spawnDirection)
     {
-        transform.position = spawnPosition;
-        transform.rotation = Quaternion.Euler(spawnDirection);
+        this.transform.position = spawnPosition;
+        this.transform.rotation = Quaternion.Euler(spawnDirection);
     }
 
     void Update()

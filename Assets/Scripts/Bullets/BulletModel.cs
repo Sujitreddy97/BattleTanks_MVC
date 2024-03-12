@@ -4,11 +4,13 @@ public class BulletModel
 {
     private float bulletSpeed;
     private float damageRate;
-    private BulletController bulletController;
-    private Vector3 direction;
-    private BulletScriptableObject bulletScriptableObject;
-
     private BulletView bulletPrefab;
+    private BulletTypes bulletType;
+
+    private BulletScriptableObject bulletScriptableObject;
+    private Vector3 direction;
+      
+    
 
     public BulletModel(BulletScriptableObject _bulletScriptableObject)
     {
@@ -16,6 +18,7 @@ public class BulletModel
         bulletSpeed = bulletScriptableObject.bulletSpeed;
         damageRate = bulletScriptableObject.damageRate;
         bulletPrefab = bulletScriptableObject.bulletObject;
+        bulletType = bulletScriptableObject.bulletType;
     }
 
     public BulletView GetBulletPrefab()
@@ -41,5 +44,10 @@ public class BulletModel
     public Vector3 GetDirection()
     {
         return this.direction;
+    }
+
+    public BulletTypes GetBulletType()
+    {
+        return bulletType;
     }
 }

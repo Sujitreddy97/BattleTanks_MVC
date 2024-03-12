@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79fc1da23d5b43449e7665782956cf6, type: 3}
-  m_Name: BlueTankSO
+  m_Script: {fileID: 11500000, guid: 4bf388796c3abf64f84b05bd6abb22e8, type: 3}
+  m_Name: GreenBulletSO
   m_EditorClassIdentifier: 
-  movementSpeed: 30
-  rotationSpeed: 150
-  tankType: 1
-  color: {fileID: 2100000, guid: ff21ff0ea9b18924bb1fdfbb0e58f5cb, type: 2}
-  bulletType: 0
+  bulletType: 1
+  bulletSpeed: 5
+  damageRate: 10
+  bulletObject: {fileID: -5021823005111937340, guid: bc41cfc6bb435e04e810b91b7e849fe5,
+    type: 3}

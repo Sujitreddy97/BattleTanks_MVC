@@ -152,7 +152,10 @@ MonoBehaviour:
   - {fileID: 8593894635523398480}
   - {fileID: 8593894635523398490}
   shootTransform: {fileID: 2153954601528378606}
-  bulletSO: {fileID: 11400000, guid: d9a59e38f0a070c498c290e1b63566a4, type: 2}
+  bulletTypes:
+  - {fileID: 11400000, guid: d9a59e38f0a070c498c290e1b63566a4, type: 2}
+  - {fileID: 11400000, guid: ed1d033340966514bb7c07dee8727d8c, type: 2}
+  - {fileID: 11400000, guid: dbb1c923de57ccd41b50c7dab09beeb3, type: 2}
 --- !u!54 &5993364664910404131
 Rigidbody:
   m_ObjectHideFlags: 0

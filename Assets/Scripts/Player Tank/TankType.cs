@@ -1,5 +1,5 @@
 
-public enum TankTypes
+public enum TankType
 {
     GreenTank,
     BlueTank,

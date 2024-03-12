@@ -8,11 +8,15 @@ public class TankModel
 
     private float rotationSpeed;
 
-    private TankTypes tankType;
+    private TankType tankType;
 
     private Material color;
 
-    private TankScriptableObject tankScriptableObject; 
+    private TankScriptableObject tankScriptableObject;
+
+    private BulletTypes bulletType;
+
+    private float attackRate;
 
     public TankModel(TankScriptableObject _tankScriptableObject)
     {
@@ -26,6 +30,9 @@ public class TankModel
 
         this.color = _tankScriptableObject.color;
         
+        this.bulletType = _tankScriptableObject.bulletType;
+
+        this.attackRate = _tankScriptableObject.attackRate;
     }
 
    
@@ -44,6 +51,15 @@ public class TankModel
         return color;
     }
 
+    public BulletTypes GetBulletType()
+    {
+        return bulletType;
+    }
+
+    public float GetAttackRate()
+    {
+        return attackRate;
+    }
 }
 
 

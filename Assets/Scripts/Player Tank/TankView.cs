@@ -16,7 +16,7 @@ public class TankView : MonoBehaviour
 
     [SerializeField] private Transform shootTransform;
 
-    [SerializeField] private BulletScriptableObject bulletSO;
+    [SerializeField] private List <BulletScriptableObject> bulletTypes;
 
 
     private void Start()
@@ -58,11 +58,11 @@ public class TankView : MonoBehaviour
         }
     }
 
-    public BulletScriptableObject BulletScriptableObject 
+    public List <BulletScriptableObject> BulletScriptableObject 
     { 
         get
         {
-            return bulletSO; 
+            return bulletTypes; 
         } 
     }
 

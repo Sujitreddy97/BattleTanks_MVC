@@ -13,24 +13,24 @@ public class TankService : MonoBehaviour
 
     private TankController tankController;
 
-    public void CreateTank(TankTypes tankType)
+    public void CreateTank(TankType tankType)
     {
         
-        if(tankType == TankTypes.BlueTank)
+        if(tankType == TankType.BlueTank)
         {
             tankModel = new TankModel(tankList[0]);
             tankController = new TankController(tankModel, tankView);
         }
 
 
-        if(tankType == TankTypes.GreenTank)
+        if(tankType == TankType.GreenTank)
         {
             tankModel = new TankModel(tankList[1]);
             tankController = new TankController(tankModel, tankView);
         }
 
                 
-        if(tankType == TankTypes.RedTank)
+        if(tankType == TankType.RedTank)
         {
             tankModel = new TankModel(tankList[2]);
             tankController = new TankController(tankModel, tankView);

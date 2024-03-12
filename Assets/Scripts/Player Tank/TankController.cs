@@ -1,3 +1,4 @@
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class TankController
@@ -6,6 +7,8 @@ public class TankController
     private TankView tankView;
     private Rigidbody rb;
     private BulletService bulletService;
+    private bool fire;
+    private float lastShotTime;
 
     public TankController(TankModel _tankModel, TankView _tankView)
     {
@@ -17,6 +20,8 @@ public class TankController
 
         tankView.ChangeColor(tankModel.GetColor());
         bulletService = new BulletService(tankView.BulletScriptableObject);
+
+        lastShotTime -= tankModel.GetAttackRate();
     }
 
     public void Move(float movement, float movementSpeed)
@@ -37,10 +42,14 @@ public class TankController
 
     public void Shoot(Vector3 spwanPos, Vector3 moveDirection)
     {
-        if(Input.GetMouseButtonDown(0)) 
+        fire = Input.GetMouseButtonDown(0);
+        float delayBullet = tankModel.GetAttackRate();
+        
+        if (fire && Time.time >= lastShotTime + delayBullet) 
         {
-            bulletService.CreateAndFireBullet(spwanPos, moveDirection);
+            bulletService.CreateAndFireBullet(spwanPos, moveDirection,tankModel.GetBulletType());
+            lastShotTime = Time.time;
         }
     }
-
+    
 }

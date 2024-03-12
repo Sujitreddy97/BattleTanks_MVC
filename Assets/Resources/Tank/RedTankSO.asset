@@ -16,4 +16,4 @@ MonoBehaviour:
   rotationSpeed: 120
   tankType: 2
   color: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
-  bulletType: 1
+  bulletType: 2

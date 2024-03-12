@@ -8,19 +8,19 @@ public class TankSelection : MonoBehaviour
 
     public void CreateBlueTank()
     {
-        tankSpawner.CreateTank(TankTypes.BlueTank);
+        tankSpawner.CreateTank(TankType.BlueTank);
         this.gameObject.SetActive(false);
     }
 
     public void CreateGreenTank()
     {
-        tankSpawner.CreateTank(TankTypes.GreenTank);
+        tankSpawner.CreateTank(TankType.GreenTank);
         this.gameObject.SetActive(false);
     }
 
     public void CreateRedTank()
     {
-        tankSpawner.CreateTank(TankTypes.RedTank);
+        tankSpawner.CreateTank(TankType.RedTank);
         this.gameObject.SetActive(false);
     }
 

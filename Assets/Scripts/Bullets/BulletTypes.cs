@@ -1,8 +1,6 @@
-
-
 public enum BulletTypes 
 {
-    HighlyExplosive,
-    GuidedMissiles,
-    ArmorPiercing
+    HighlyExplosiveMissile,
+    FastMissile,
+    SlowMissile
 }

@@ -9,7 +9,11 @@ public class TankScriptableObject : ScriptableObject
 
     public float rotationSpeed;
 
-    public TankTypes tankType;
+    public TankType tankType;
 
     public Material color;
+
+    public BulletTypes bulletType;
+
+    public float attackRate;
 }

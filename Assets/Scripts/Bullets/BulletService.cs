@@ -1,21 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletService : MonoBehaviour
+public class BulletService
 {
     private List <BulletController> activeBullets;
-    private BulletScriptableObject bulletSO;
+    private List <BulletScriptableObject> bulletList;
 
-    public BulletService(BulletScriptableObject _bulletSO)
+    public BulletService(List<BulletScriptableObject> _bulletSO)
     {
-        this.bulletSO = _bulletSO;
+        this.bulletList = _bulletSO;
         this.activeBullets = new List<BulletController>();
     }
 
-    public void CreateAndFireBullet(Vector3 spawnPosition, Vector3 moveDirection)
+    public void CreateAndFireBullet(Vector3 spawnPosition, Vector3 moveDirection, BulletTypes bulletType)
     {
-        BulletModel bulletModel = new BulletModel(bulletSO);
-        activeBullets.Add( new BulletController(bulletModel, spawnPosition, moveDirection));
+        if(bulletList != null)
+        {
+            if(bulletType == BulletTypes.HighlyExplosiveMissile)
+            {
+                BulletModel bulletModel = new BulletModel(bulletList[0]);
+                activeBullets.Add(new BulletController(bulletModel, spawnPosition, moveDirection));
+            }
+            
+            if(bulletType == BulletTypes.FastMissile)
+            {
+                BulletModel bulletModel = new BulletModel(bulletList[1]);
+                activeBullets.Add(new BulletController(bulletModel, spawnPosition, moveDirection));
+            }
+
+            if(bulletType == BulletTypes.SlowMissile)
+            {
+                BulletModel bulletModel = new BulletModel(bulletList[2]);
+                activeBullets.Add(new BulletController(bulletModel, spawnPosition, moveDirection));
+            }
+        }
+        
     }
 
 }
